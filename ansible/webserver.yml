@@ -1,0 +1,21 @@
+---
+- name: Configure Web Server
+  hosts: webserver
+  become: yes
+
+  tasks:
+    - name: Install Apache Web Server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and Enable Apache Service
+      systemd:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Create a simple HTML file
+      copy:
+        dest: /var/www/html/index.html
+        content: "<html><body><h1>Welcome to the Web Server!</h1></body></html>"

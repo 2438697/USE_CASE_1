@@ -1,0 +1,17 @@
+# Ignore private keys
+*.pem
+teraform/.terraform/
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Ignore Ansible cache
+*.retry
+
+# Ignore IDE settings
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db.terraform/
