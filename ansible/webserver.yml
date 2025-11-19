@@ -1,21 +1,21 @@
----
-- name: Configure Web Server
-  hosts: webserver
-  become: yes
+--- # Ansible playbook to set up a web server
+- name: Configure Web Server  # Playbook name
+  hosts: webserver # Target hosts group
+  become: yes # Elevate privileges to perform tasks as root
 
-  tasks:
-    - name: Install Apache Web Server
-      yum:
-        name: httpd
-        state: present
+  tasks: # List of tasks to be executed
+    - name: Install Apache Web Server # Task name
+      yum:  # Use yum module to manage packages
+        name: httpd # Package name
+        state: present # Ensure the package is installed
 
-    - name: Start and Enable Apache Service
-      systemd:
-        name: httpd
-        state: started
-        enabled: yes
+    - name: Start and Enable Apache Service # Task name
+      systemd:  # Use systemd module to manage services
+        name: httpd # Service name
+        state: started # Ensure the service is started
+        enabled: yes # Enable the service to start on boot
 
-    - name: Create a simple HTML file
-      copy:
-        dest: /var/www/html/index.html
-        content: "<html><body><h1>Welcome to the Web Server!</h1></body></html>"
+    - name: Create a simple HTML file # Task name
+      copy:  # Use copy module to create a file
+        dest: /var/www/html/index.html # Destination path of the file
+        content: "<html><body><h1>Welcome to the Web Server!</h1></body></html>" # Content of the file

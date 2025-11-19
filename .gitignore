@@ -4,9 +4,11 @@ teraform/.terraform/
 # Ignore Terraform state files
 *.tfstate
 *.tfstate.backup
+ansible/value-key.pem
 
 # Ignore Ansible cache
 *.retry
+ansible/value-key.pem
 
 # Ignore IDE settings
 .vscode/
